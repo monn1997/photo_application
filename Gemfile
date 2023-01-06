@@ -21,6 +21,13 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt'
 
 gem 'dotenv-rails'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'mimemagic', '0.3.7'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -35,6 +42,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do
