@@ -15,6 +15,7 @@ class BlogsController < ApplicationController
       render :new
     else    
       if @blog.save
+        ContactMailer.contact_mail(@blog).deliver 
         redirect_to blogs_path, notice: "ブログを作成しました！"
       else
         render :new
@@ -23,7 +24,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end  
 
   def edit

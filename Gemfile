@@ -28,6 +28,8 @@ gem 'mini_magick'
 
 gem 'mimemagic', '0.3.7'
 
+gem 'rexml'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -56,6 +58,8 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'letter_opener_web'
 end
 
 group :test do
