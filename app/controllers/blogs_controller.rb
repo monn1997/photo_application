@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+  skip_before_action :login_required, only: [:new, :create]  
+  #before_action :ensure_current_user, {only: [:edit, :update]}
   before_action :set_blog, only: [:show, :edit, :update, :destroy]  
   
   def index
@@ -29,7 +31,11 @@ class BlogsController < ApplicationController
 
   def edit
     @blog = Blog.find(params[:id])
-  end  
+    unless @blog == current_user
+        flash[:notice] = "権限がありません"
+        redirect_to blogs_path
+    end
+  end    
 
   def update
     @blog = Blog.find(params[:id])
@@ -51,6 +57,7 @@ class BlogsController < ApplicationController
   end  
   
   private
+    
 
   def blog_params
     params.require(:blog).permit(:title, :content, :image, :image_cache)
