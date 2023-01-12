@@ -38,6 +38,8 @@ gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
 
+gem 'letter_opener_web'
+
 group :development, :test do
   
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -55,7 +57,6 @@ group :development do
   
   gem 'spring'
 
-  gem 'letter_opener_web'
 end
 
 group :test do
