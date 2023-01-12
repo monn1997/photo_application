@@ -155,6 +155,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.11.7-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.11.7-x86_64-linux)
+      racc (~> 1.4)
     pg (1.4.5)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -263,6 +265,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt
@@ -279,6 +282,9 @@ DEPENDENCIES
   listen (~> 3.3)
   mimemagic (= 0.3.7)
   mini_magick
+  net-imap
+  net-pop
+  net-smtp
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
