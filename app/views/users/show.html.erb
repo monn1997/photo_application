@@ -2,5 +2,12 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 
+<p>プロフィール画像:
+<%= image_tag(@user.image.url, size: "200x200") if @user.image && @user.image.url %>
+</p>
+
+<% if @user.id == current_user.id %>
+  <%= link_to "プロフィール編集", edit_user_path(@user) %>
+<% end %>
 <%= link_to "投稿一覧", blogs_path %>
 <%= link_to 'お気に入り一覧', favorites_path %>

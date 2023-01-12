@@ -31,11 +31,7 @@ class BlogsController < ApplicationController
 
   def edit
     @blog = Blog.find(params[:id])
-    unless @blog == current_user
-        flash[:notice] = "権限がありません"
-        redirect_to blogs_path
-    end
-  end    
+  end
 
   def update
     @blog = Blog.find(params[:id])
