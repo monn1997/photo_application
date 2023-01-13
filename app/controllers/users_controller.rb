@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-    skip_before_action :login_required, only: [:new, :create]  
+    skip_before_action :login_required, only: [:new, :create]
+    before_action :check_current_user?  
+    skip_before_action :check_current_user?, only: [:show, :new, :create, :update, :edit]
   def new
     @user = User.new
   end  
@@ -18,6 +20,7 @@ class UsersController < ApplicationController
   end 
   
   def edit
+    current_user
     @user = User.find(params[:id])
     unless @user == current_user
       flash[:notice] = "権限がありません"

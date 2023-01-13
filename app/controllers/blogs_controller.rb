@@ -2,6 +2,8 @@ class BlogsController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]  
   #before_action :ensure_current_user, {only: [:edit, :update]}
   before_action :set_blog, only: [:show, :edit, :update, :destroy]  
+  skip_before_action :check_current_user?, only: [:index, :show, :new, :create, :edit, :update, :destroy, :confirm] 
+  
   
   def index
     @blogs = Blog.all
